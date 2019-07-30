@@ -5,15 +5,16 @@
 
 {% block content %}
     {% for post in photos %}
+        <br>
         <div class="row">
             <div class="col-md-2"></div>
-            <div class="col-md-8 panel panel-default">
-                <p><img src="{{post.photo.url}}" style="width:100%;"></p>
-                <button type="button" class="btn btn-xs btn-info">
-                    {{post.author.username}}</button>
-                <p>{{post.text|linebreaksbr}}</p>
+            <div class="col-md-8 panel panel-default bg-white border rounded" >
+                <br>
+                <p class="text-center"><img class="rounded mx-auto d-block" src="{{post.photo.url}}" style="width:100%;"></p>
+                <span class="badge badge-pill badge-dark">{{post.author.username}}</span>
+                <span>{{post.text|linebreaksbr}}</span>
                 <p class="text-right">
-                    <a href="{% url 'photo:photo_detail' pk=post.id %}" class="btn btn-xs btn-success">댓글달기</a>
+                    <a href="{% url 'photo:photo_detail' pk=post.id %}" class="badge badge-warning">comment</a>
                 </p>
             </div>
             <div class="col-md-2"></div>

@@ -23,7 +23,7 @@ class PhotoUploadView(LoginRequiredMixin, CreateView):
             form.instance.save()
             return redirect('/')
         else:
-            return self.render_to_response({'form':form})
+                return self.render_to_response({'form':form})
 
 class PhotoDeleteView(LoginRequiredMixin, DeleteView):
     model = Photo
@@ -35,4 +35,3 @@ class PhotoUpdateView(LoginRequiredMixin, UpdateView):
     model = Photo
     fields = ['photo', 'text']
     template_name = 'photo/update.html'
-    
