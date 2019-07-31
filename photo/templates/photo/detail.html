@@ -7,22 +7,25 @@
 {% block content %}
     <div class="row">
             <div class="col-md-2"></div>
-            <div class="col-md-8 panel panel-default bg-white border">
+            <div class="col-md-8 panel panel-default bg-white border mx-auto" style="max-width:700px;">
                 <br>
-                <p class="text-center"><img class="rounded mx-auto d-block" src="{{object.photo.url}}" style="width:100%;"></p>
+                <p class="text-center"><img class="rounded mr-auto d-block" src="{{object.photo.url}}" style="width:100%;"></p>
                 <span class="badge badge-pill badge-dark">{{object.author.username}}</span>
                 <span>{{object.text|linebreaksbr}}</span>
-                <p class="text-right">
-                    <a href="{% url 'photo:photo_update' pk=object.id %}" class="badge badge-danger">Update</a>
-                    <a href="{% url 'photo:photo_delete' pk=object.id %}" class="badge badge-success">Delete</a>
-                </p>
+                 <p class="text-right">
+                     {% if user.get_username == object.author.username %}
+                    <a href="{% url 'photo:photo_update' pk=object.id %}" class="badge badge-success">Update</a>
+                    <a href="{% url 'photo:photo_delete' pk=object.id %}" class="badge badge-danger">Delete</a>
+                    {% endif %}
+                    <a href="/" class="badge badge-secondary">Back</a>
+                 </p>
             </div>
             <div class="col-md-2"></div>
     </div>
-
+    <br>
     <div class="row">
         <div class="col-md-2"></div>
-        <div class="col-md-8 panel panel-default">
+        <div class="col-md-8 panel panel-default mx-auto" style="max-width:700px;">
             {% load disqus_tags %}
             {% disqus_show_comments %}
         </div>

@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from .models import Photo
-from django.views.generic.edit import CreateView, DeleteView, UpdateView, BaseDetailView
+from django.views.generic.edit import CreateView, DeleteView, UpdateView
 from django.shortcuts import redirect
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -10,7 +10,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 @login_required
 def photo_list(request):
     photos = Photo.objects.all()
-    return render(request, 'photo/list.html', {'photos':photos})
+    return render(request, 'photo/list.html', {'photos': photos})
 
 class PhotoUploadView(LoginRequiredMixin, CreateView):
     model = Photo
@@ -23,7 +23,7 @@ class PhotoUploadView(LoginRequiredMixin, CreateView):
             form.instance.save()
             return redirect('/')
         else:
-                return self.render_to_response({'form':form})
+                return self.render_to_response({'form': form})
 
 class PhotoDeleteView(LoginRequiredMixin, DeleteView):
     model = Photo
@@ -35,3 +35,5 @@ class PhotoUpdateView(LoginRequiredMixin, UpdateView):
     model = Photo
     fields = ['photo', 'text']
     template_name = 'photo/update.html'
+
+

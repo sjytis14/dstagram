@@ -5,14 +5,31 @@
 {% endblock %}
 
 {% block content %}
-
+<br>
 <div class="row">
     <div class="col-md-2"></div>
     <div class="col-md-8 panel panel-default">
+        <hr>
         <form action="" method="post" enctype="multipart/form-data">
-            {{form.as_p}}
+                <div class="form-group row">
+                    <label for="id_photo" class="col-sm-2 col-form-label">파일</label>
+                    <div class="col-sm-10">
+                        <input type="file" name="photo" accept="image/*" id="id_photo">
+                    </div>
+                </div>
+            <hr>
+             <div class="form-group row">
+                    <label for="id_photo" class="col-sm-2 col-form-label">내용</label>
+                    <div class="col-sm-10">
+                        <textarea class="form-control" name="text" id="id_text" required></textarea>
+                    </div>
+                </div>
             {% csrf_token %}
-            <input type="submit" class="btn btn-primary" value="Upload">
+                <hr>
+                <br>
+                <p class="text-right">
+                    <input type="submit" class="btn btn-outline-info btn-sm" value="Upload">
+                </p>
         </form>
     </div>
     <div class="col-md-2"></div>

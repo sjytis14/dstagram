@@ -5,18 +5,25 @@
 {% endblock %}
 
 {% block content %}
+<br>
 <div class="row">
     <div class="col-md-2"></div>
     <div class="col-md-8 panel panel-default">
-        <div class="alert alert-info">
-            Do you want to delete {{object}}?
+        <div class="alert alert-danger">
+            Do you want to delete <a href="{{object.photo.url}}" class="text-danger alert-link">{{object}}</a>?
         </div>
         <form action="" method="post">
             {{form.as_p}}
             {% csrf_token %}
-            <input type="submit" class="btn btn-danger" value="Confirm">
+            <p class="text-right">
+            <input type="submit" class="btn btn-danger" value="Yes">
+            <a href="/" class="btn btn-secondary">No</a>
+            </p>
         </form>
+
+
     </div>
     <div class="col-md-2"></div>
 </div>
 {% endblock %}
+

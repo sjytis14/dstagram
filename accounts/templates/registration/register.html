@@ -5,16 +5,57 @@
 {% endblock %}
 
 {% block content %}
-<div class="row">
+    <br>
+    <div class="row">
         <div class="col-md-2"></div>
         <div class="col-md-8 panel panel-default">
             <div class="alert alert-info">Please enter your account informations.</div>
+            <hr>
             <form action="" method="post">
-                {{form.as_p}}
+              <div class="form-row">
+               <div class="form-group col-md-6">
+                <div class="input-group mr-sm-2">
+                  <div class="input-group-prepend">
+                    <div class="input-group-text">@</div>
+                  </div>
+                  <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" name="username"required="" id="id_username">
+                </div>
+                </div>
+                <div class="form-group col-md-6">
+                   <small id="passwordHelpBlock" class="form-text text-muted">Required. 150 characters or fewer. Letters, digits and @/./+/-/_ only.</small>
+                </div>
+                <div class="form=group col-md-6 md-3">
+                   <label for="id_first_name">First name</label>
+                   <input type="text" name="first_name" class="form-control" id="id_first_name"required>
+                </div>
+                <div class="form-group col-md-6 md-3">
+                  <label for="id_last_name">Last name</label>
+                  <input type="text" name="last_name" class="form-control" id="id_last_name" required>
+                </div>
+                <div class="form-group col-md-12 md-3">
+                  <label for="id_email">Email address</label>
+                  <input type="email" name="email" class="form-control" placeholder="name@example.com" id="id_email">
+                </div>
+              </div>
+              <div class="form-group row">
+                  <label for="id_password" class="col-sm-3 col-form-label">Password</label>
+                  <div class="col-sm-9">
+                    <input type="password"  class="form-control" name="password" required id="id_password">
+                  </div>
+              </div>
+              <div class="form-group row">
+                  <label for="id_password2" class="col-sm-3 col-form-label">Repeat Password</label>
+                  <div class="col-sm-9">
+                    <input type="password" name="password2" class="form-control" required id="id_password2">
+                  </div>
+              </div>
                 {% csrf_token %}
-                <input class="btn btn-primary" type="submit" value="Register">
+                <hr>
+                <p class="text-right">
+                    <input class="btn btn-info" type="submit" value="Signup">
+                </p>
             </form>
         </div>
         <div class="col-md-2"></div>
-</div>
+    </div>
 {% endblock %}

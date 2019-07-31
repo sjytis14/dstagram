@@ -1,14 +1,16 @@
 
 {% extends 'base.html' %}
 
-{% block title %}- List{% endblock %}
+{% block title %}- Home{% endblock %}
 
 {% block content %}
+<div class="container">
+
     {% for post in photos %}
         <br>
         <div class="row">
             <div class="col-md-2"></div>
-            <div class="col-md-8 panel panel-default bg-white border rounded" >
+            <div class="col-md-8 panel panel-default bg-white border rounded mx-auto" style="max-width:700px;">
                 <br>
                 <p class="text-center"><img class="rounded mx-auto d-block" src="{{post.photo.url}}" style="width:100%;"></p>
                 <span class="badge badge-pill badge-dark">{{post.author.username}}</span>
@@ -21,4 +23,6 @@
         </div>
 
     {% endfor %}
+    </div>
+
 {% endblock %}
