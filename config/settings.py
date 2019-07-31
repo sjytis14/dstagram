@@ -41,7 +41,6 @@ INSTALLED_APPS = [
     'accounts',
     'disqus',
     'django.contrib.sites',
-    'login.apps.LoginConfig',
 
     # allauth
     'allauth',
